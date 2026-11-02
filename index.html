@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Solar Orrery</title>
+<meta name="description" content="Real planetary positions for any date, one sun, all orbits.">
+<meta name="theme-color" content="#05060a">
+<meta property="og:title" content="Solar Orrery">
+<meta property="og:description" content="Real planetary positions for any date.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305060a'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%23f7d354'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.js"></script>
+</head>
+<body>
+<header class="top">
+<h1 class="title">Solar Orrery</h1>
+<p class="tag">real positions &middot; one sun</p>
+</header>
+
+<main class="stage">
+<div class="orrery-wrap">
+<svg id="orrery" viewBox="-215 -215 430 430" preserveAspectRatio="xMidYMid meet">
+<defs>
+<radialGradient id="sunGlow">
+<stop offset="0%" stop-color="#f7d354" stop-opacity="0.55"/>
+<stop offset="40%" stop-color="#f7d354" stop-opacity="0.18"/>
+<stop offset="100%" stop-color="#f7d354" stop-opacity="0"/>
+</radialGradient>
+</defs>
+<g class="orbits"></g>
+<circle r="34" fill="url(#sunGlow)"/>
+<circle r="9" class="sun-core"/>
+<g class="planets"></g>
+</svg>
+</div>
+</main>
+
+<footer class="bottom">
+<div class="controls">
+<input type="date" id="datePicker">
+<button id="todayBtn" type="button">today</button>
+<button id="randBtn" type="button">random</button>
+</div>
+<div class="scrub">
+<input type="range" id="slider" min="0" max="18262" step="1">
+<div class="scrub-labels">
+<span id="lblStart">2000</span>
+<span id="lblMid">2025</span>
+<span id="lblEnd">2050</span>
+</div>
+</div>
+<div class="legend" id="legend"></div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
